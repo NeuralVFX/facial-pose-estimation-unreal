@@ -31,11 +31,11 @@
 
 - To enable DLL, open `Settings->Project Settings` and find `GameInstanceClass`, replace this with `cDataStorageGameInstance`
 
-![](Images/game_instance.png)
+![](Images/gameinstance.png)
 - From the Content Manager, open the level `FacialPoseEstimation Content Assets->TestLevel`
 - The `ArFaceRig_BP` is a Blueprint made from a Pawn, so in `World Settings`, double check that `GameMode Override` is set to `ArFaceRig_BP`, this has the Pawn set already.
 
-![](Images/game_mode.png)
+![](Images/gamemode.png)
 
 ## Run It
 
