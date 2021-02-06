@@ -23,22 +23,21 @@ public:
 	AArFaceRig();
 
 	/** Face mesh */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ARFace | Geo")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ARFace | Objects")
 	class USkeletalMeshComponent* FaceMesh;
 
 	/** Face blendshapes */
 	TArray<FString> BlendShapeArray;
 
 	/** Custom camera */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "ARFace | Camera" )
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "ARFace | Objects" )
 	class UCameraComponent* FaceCamera;
 
 	/** Mesh to render camera stream texture on */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | Geo")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | Objects")
 	class UStaticMeshComponent* PlaneMesh;
 
 	/** Material to override camera stream texture on */
-	UPROPERTY(EditDefaultsOnly, Category = Materials)
 	class UMaterialInstance* MasterMaterialRef;
 
 	/** Matrix transforms */
@@ -66,30 +65,30 @@ public:
 
 	/** Resolution attained by OpenCV */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | OpenCV")
-	int outCameraWidth;
+	int OutCameraWidth;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | OpenCV")
-	int outCameraHeight;
+	int OutCameraHeight;
 
 	/** Downscale ratio for face detection */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | OpenCV")
-	int detectRatio;
+	int DetectRatio;
 	
 	/** Which camera to use */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | OpenCV")
-	int camId;
+	int CamId;
 
 	/** Zoom level to use for camera/solve */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | OpenCV")
-	float fovZoom;
+	float FovZoom;
 
 	/** Whether to draw techincal indicators on background image */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | OpenCV")
-	bool draw;
+	bool Draw;
 
 	/** Whether to lock eyes and nose during PnP solve */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | OpenCV")
-	bool lockEyesNose;
+	bool LockEyesNose;
 
 
 protected:

@@ -48,7 +48,9 @@ AArFaceRig::AArFaceRig()
 	MatB.M[2][0] = -1, MatB.M[2][1] = 0, MatB.M[2][2] = 0;
 
 	// Face scale
-	FaceScale = 5.0;
+	FaceScale = 5.7;
+
+	// Momentum smoothing parameters
 	Momentum = 1.2;
 	Blend = .5;
 
@@ -57,13 +59,13 @@ AArFaceRig::AArFaceRig()
 	PrevPosition = FVector(0, 0, 0);
 
 	// DLL properties
-	outCameraWidth = 1920;
-	outCameraHeight = 1080;
-	detectRatio = 1;
-	camId = 0;
-	fovZoom = 1;
-	draw = false;
-	lockEyesNose = true;
+	OutCameraWidth = 1920;
+	OutCameraHeight = 1080;
+	DetectRatio = 1;
+	CamId = 0;
+	FovZoom = 1;
+	Draw = false;
+	LockEyesNose = true;
 }
 
 
@@ -73,13 +75,13 @@ void AArFaceRig::BeginPlay()
 
 	UcDataStorageGameInstance* GameInst = (UcDataStorageGameInstance*)GetGameInstance();
 
-	GameInst->CustomStart(outCameraWidth,
-		outCameraHeight,
-		detectRatio,
-		camId,
-		fovZoom,
-		draw,
-		lockEyesNose);
+	GameInst->CustomStart(OutCameraWidth,
+		OutCameraHeight,
+		DetectRatio,
+		CamId,
+		FovZoom,
+		Draw,
+		LockEyesNose);
 
 	// Set blend shape names
 	USkeletalMesh* skelMesh = FaceMesh->SkeletalMesh;
@@ -90,22 +92,22 @@ void AArFaceRig::BeginPlay()
 	MasterMaterialRef = Material;
 
 	// Set plane transform
-	PlaneMesh->SetWorldLocationAndRotation(FVector((outCameraWidth*fovZoom)*100, 0, 0),
+	PlaneMesh->SetWorldLocationAndRotation(FVector((OutCameraWidth*FovZoom)*100, 0, 0),
 		FQuat(FRotator(0, 90, 90)));
 
-	PlaneMesh->SetWorldScale3D(FVector(outCameraWidth, outCameraHeight, 1));
+	PlaneMesh->SetWorldScale3D(FVector(OutCameraWidth, OutCameraHeight, 1));
 
 	// Reset camera transform
 	FaceCamera->SetWorldTransform(FTransform(FVector(0)));
 
 	// Calculate FOV
-	float Distance = FMath::Abs(outCameraWidth*fovZoom);
-	float Radians = 2.0f * FMath::Atan(outCameraWidth * 0.5f / Distance);
+	float Distance = FMath::Abs(OutCameraWidth*FovZoom);
+	float Radians = 2.0f * FMath::Atan(OutCameraWidth * 0.5f / Distance);
 	float Fov = FMath::RadiansToDegrees(Radians);
 
 	// Set FOV
 	FaceCamera->SetFieldOfView(Fov);
-	FaceCamera->SetAspectRatio((float)outCameraWidth / (float)outCameraHeight);
+	FaceCamera->SetAspectRatio((float)OutCameraWidth / (float)OutCameraHeight);
 	FaceCamera->SetConstraintAspectRatio(true);
 }
 
@@ -124,14 +126,14 @@ void AArFaceRig::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 }
 
 
-void AArFaceRig::SetBlendShapes(float* blendshapes)
+void AArFaceRig::SetBlendShapes(float* Blendshapes)
 {
 	// Loop through each blendshape and set value
 	int count = 0;
 	for (auto blendshape : BlendShapeArray)
 	{
 		FaceMesh->SetMorphTarget(FName(blendshape),
-			blendshapes[count]);
+			Blendshapes[count]);
 
 		count++;
 	}
