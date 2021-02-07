@@ -96,10 +96,10 @@
 ```
 ### Motion
 ```
---TransformMomentum, default=1.2, type=float                             # Momentum scale for temporal blending on transform
---TransformBlendMult, default=.5, type=float                             # Multiplier for temporal blending on transform
---BlendShapeMomentum, default=1.2, type=float                            # Momentum scale for temporal blending on blendshapes
---BlendShapeBlendMult, default=.5, type=float                            # Multiplier for temporal blending on blendshapes
+--TransformMomentum, default=1.2, type=float                    # Momentum scale for temporal blending on transform
+--TransformBlendMult, default=.5, type=float                    # Multiplier for temporal blending on transform
+--BlendShapeMomentum, default=1.2, type=float                   # Momentum scale for temporal blending on blendshapes
+--BlendShapeBlendMult, default=.5, type=float                   # Multiplier for temporal blending on blendshapes
 ```
 ### OpenCV
 ```
