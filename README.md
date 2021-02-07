@@ -16,7 +16,7 @@ This blog post describes the whole project: [AR Facial Pose Estimation](http://n
 - Tracks both the transform of the entire head, and the pose of the face
 - Tracks a single face at a time, if two people stand in front of the camera the face will jump back and forth
 - There are controls built in for manually adjusting camera FOV
-- The `Neural Net` used by the project can be found here: [facial-pose-estimation-pytorch](https://github.com/NeuralVFX/facial-pose-estimation-pytorch-v2)
+- The `Neural Net` used by the project can be found here: [facial-pose-estimation-pytorch-v2](https://github.com/NeuralVFX/facial-pose-estimation-pytorch-v2)
 
 ## Estimation Pipeline Diagram
 ![](Images/pipeline.png)
