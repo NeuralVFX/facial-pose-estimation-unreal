@@ -1,6 +1,6 @@
 ![](https://github.com/NeuralVFX/facial-pose-estimation-unity/blob/master/examples/example_celeb_c.gif)
 # Facial-Pose-Estimation-Unreal
-This repository is a Unreal Plugin demonstrating realtime AR Facial Pose Estimation.
+This repository is an Unreal Plugin demonstrating realtime AR Facial Pose Estimation.
 
 ## About
 This is one of three repositories which together form a larger project, these are the three repositories:
