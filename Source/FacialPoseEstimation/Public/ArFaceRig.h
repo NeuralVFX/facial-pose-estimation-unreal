@@ -58,10 +58,18 @@ public:
 
 	/** Face motion blending parameters */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | Motion")
-	float Momentum;
+	float TransformMomentum;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | Motion")
-	float Blend;
+	float TransformBlendMult;
+
+	/** Face motion blending parameters */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | Motion")
+	float BlendShapeMomentum;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | Motion")
+	float BlendShapeBlendMult;
+
 
 	/** Resolution attained by OpenCV */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ArFace | OpenCV")

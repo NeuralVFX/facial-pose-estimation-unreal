@@ -51,8 +51,10 @@ AArFaceRig::AArFaceRig()
 	FaceScale = 5.7;
 
 	// Momentum smoothing parameters
-	Momentum = 1.2;
-	Blend = .5;
+	TransformMomentum = 1.2;
+	TransformBlendMult = .5;
+	BlendShapeMomentum = 2.0;
+	BlendShapeBlendMult = .8;
 
 	// Transform blend values
 	PrevRotation = FRotator(0, 0, 0);
@@ -132,9 +134,7 @@ void AArFaceRig::SetBlendShapes(float* Blendshapes)
 	int count = 0;
 	for (auto blendshape : BlendShapeArray)
 	{
-		FaceMesh->SetMorphTarget(FName(blendshape),
-			Blendshapes[count]);
-
+		FaceMesh->SetMorphTarget(FName(blendshape), Blendshapes[count]);
 		count++;
 	}
 }
@@ -163,20 +163,20 @@ void AArFaceRig::SetTransforms(FVector Up, FVector Forward, FVector Translation)
 	// Guess next transform
 	FRotator RotGuess = FMath::Lerp(PrevRotation,
 		CurrentRot,
-		Momentum);
+		TransformMomentum);
 
 	FVector TranGuess = FMath::Lerp(PrevPosition,
 		CurrenTran,
-		Momentum);
+		TransformMomentum);
 
 	// Store previous frame
 	PrevRotation = CurrentRot;
 	PrevPosition = CurrenTran;
 
 	// Blend with prediction
-	RotGuess = FMath::Lerp(RotGuess, NewRot.Rotator(), Blend);
+	RotGuess = FMath::Lerp(RotGuess, NewRot.Rotator(), TransformBlendMult);
 
-	TranGuess = FMath::Lerp(TranGuess, Translation, Blend);
+	TranGuess = FMath::Lerp(TranGuess, Translation, TransformBlendMult);
 
 	// Set transform
 	FTransform FinalTransform(RotGuess,
@@ -229,10 +229,10 @@ void AArFaceRig::RunDLL()
 	for (int i = 0; i < 51; i++)
 	{
 		// Calc momentum
-		float BlendVal = BlendValues[i] + ((BlendValues[i] - PrevBlendValues[i]) * Momentum);
+		float BlendVal = BlendValues[i] + ((BlendValues[i] - PrevBlendValues[i]) * BlendShapeMomentum);
 
 		// Blend with prediction
-		BlendVal = FMath::Lerp(BlendVal, outExpression[i], Blend);
+		BlendVal = FMath::Lerp(BlendVal, outExpression[i], BlendShapeBlendMult);
 
 		PrevBlendValues[i] = BlendValues[i];
 		BlendValues[i] = BlendVal;
