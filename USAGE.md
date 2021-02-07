@@ -36,7 +36,7 @@
 - From `Edit->Plugins`, locate the `Other` Category
 - Find `FacialPoseEstimation` and click `Enable`
 
-![](Images/plugin.png)
+![](Images/plugin_a.png)
 
 #### Scene/World Setup
 
