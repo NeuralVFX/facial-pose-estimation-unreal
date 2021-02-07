@@ -21,7 +21,7 @@
 - Copy `LibTorch and OpenCV DLLs` into the projects (not the plugin) `Binaries` folder (ie:`Binaries/Win64/`)
 
 #### Models
-- Download the `SSD`, `Landmark Detection`, and `Facial Pose Estimation` models and place into the same path you have designated in the DLL
+- Download the `SSD`, `Landmark Detection`, `Facial Pose Estimation`, and `Blendshape Mixer` models and place into the same path you have designated in the DLL
 
 | **Model**                    | **Link**                                  |
 |------------------------------|--------------------------------------------|
