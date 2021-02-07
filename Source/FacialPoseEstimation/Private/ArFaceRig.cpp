@@ -31,7 +31,7 @@ AArFaceRig::AArFaceRig()
 	static ConstructorHelpers::FObjectFinder<UStaticMesh>PlaneMeshAsset(*PlaneStr);
 	PlaneMesh->SetStaticMesh(PlaneMeshAsset.Object);
 
-	// Fetch LibTorch material from scene
+	// Fetch viewer material from scene
 	FString ViewMatStr = "Material'/FacialPoseEstimation/Assets/ViewerMaterial.ViewerMaterial'";
 	static ConstructorHelpers::FObjectFinder<UMaterial>MaterialAsset(*ViewMatStr);
 	PlaneMesh->SetMaterial(0, MaterialAsset.Object);
