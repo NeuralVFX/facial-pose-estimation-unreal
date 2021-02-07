@@ -20,6 +20,17 @@
 - Follow [directions](https://github.com/NeuralVFX/facial-pose-estimation-libtorch-dll) to compile `facial-pose-estimation-libtorch.dll` and place into the bin directory (ie:`Plugins/basic-unreal-libtorch-plugin/Bin/Win64/`)
 - Copy `LibTorch and OpenCV DLLs` into the projects (not the plugin) `Binaries` folder (ie:`Binaries/Win64/`)
 
+#### Models
+- Download the `SSD`, `Landmark Detection`, and `Facial Pose Estimation` models and place into the same path you have designated in the DLL
+
+| **Model**                    | **Link**                                  |
+|------------------------------|--------------------------------------------|
+| `Facial Pose Estimation Network`|[bs.ptc](https://github.com/NeuralVFX/facial-pose-estimation-pytorch-v2/raw/master/output/bs_detect.ptc)|
+| `Facial Blend Shape Mixer`|[bs.ptc](https://github.com/NeuralVFX/facial-pose-estimation-pytorch-v2/raw/master/output/bs_model.ptc)|
+| `Face Detection SSD Meta`                   | [deploy.prototxt](https://github.com/spmallick/learnopencv/raw/master/FaceDetectionComparison/models/deploy.prototxt) |
+| `Face Detection SSD Model`                  |    [res10_300x300_ssd_iter_140000_fp16.caffemodel](https://github.com/spmallick/learnopencv/raw/master/FaceDetectionComparison/models/res10_300x300_ssd_iter_140000_fp16.caffemodel)                                        |
+| `Landmark Detection Model`     |      ** coming soon***|
+
 #### Find Plugin
 - Open the compiled project in Unreal Engine
 - From `Edit->Plugins`, locate the `Other` Category
