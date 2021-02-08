@@ -1,4 +1,4 @@
-![](https://github.com/NeuralVFX/facial-pose-estimation-unreal/blob/main/Images/arface.gif)
+![](https://github.com/NeuralVFX/facial-pose-estimation-unreal/blob/main/Images/arface_b.gif)
 # Facial-Pose-Estimation-Unreal
 This repository is an Unreal Plugin demonstrating realtime AR Facial Pose Estimation.
 
