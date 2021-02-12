@@ -29,7 +29,7 @@
 | `Facial Blend Shape Mixer`|[bs_model.ptc](https://github.com/NeuralVFX/facial-pose-estimation-pytorch-v2/raw/main/output/bs_model.ptc)|
 | `Face Detection SSD Meta`                   | [deploy.prototxt](https://github.com/spmallick/learnopencv/raw/master/FaceDetectionComparison/models/deploy.prototxt) |
 | `Face Detection SSD Model`                  |    [res10_300x300_ssd_iter_140000_fp16.caffemodel](https://github.com/spmallick/learnopencv/raw/master/FaceDetectionComparison/models/res10_300x300_ssd_iter_140000_fp16.caffemodel)                                        |
-| `Landmark Detection Model`     |      ** coming soon***|
+| `Landmark Detection Model`     |   [landmark_detect.ptc](https://github.com/NeuralVFX/HRNet-Facial-Landmark-Detection/raw/master/output/300W/face_alignment_300w_hrnet_w18/landmark_detect.ptc)|
 
 #### Find Plugin
 - Open the compiled project in Unreal Engine
